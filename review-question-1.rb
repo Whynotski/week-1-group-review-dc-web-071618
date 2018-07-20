@@ -1,4 +1,11 @@
 ## QUESTION 1
+# How would you get the url for Bulbasaur's ability?
+
+# # How would you return the first pokemon with base experience over 40?
+# # How would you return ALL OF THE pokemon with base experience over 40? (Gotta catch em all)
+# # How would you return an array of all of the pokemon's names?
+# # How would you determine whether or not the pokemon array contained any pokemon with a weight greater than 60?
+# #  whatever method you use should return true if there are any such pokemon, false if not.
 
 pokemon = [
   {
@@ -62,8 +69,40 @@ pokemon = [
 
 
 # How would you get the url for Bulbasaur's ability?
-# How would you return the first pokemon with base experience over 40?
-# How would you return ALL OF THE pokemon with base experience over 40? (Gotta catch em all)
-# How would you return an array of all of the pokemon's names?
-# How would you determine whether or not the pokemon array contained any pokemon with a weight greater than 60?
-#  whatever method you use should return true if there are any such pokemon, false if not.
+  def find_url
+    pokemon[0][:abilities][0][:ability][:url]
+  end
+  # How would you return the first pokemon with base experience over 40?
+  def first_over_40?(pokemon)
+    pokeman.find do |pokemon|
+      #find will just go to the first one that meets the condition
+      pokemon[:base_experience] > 40
+    end
+  end
+
+  # How would you return ALL OF THE pokemon with base experience over 40? (Gotta catch em all)
+
+  def all_over_40?(pokemon)
+    pokeman.select do |pokemon|
+      #find will just go to the first one that meets the condition
+      pokemon[:base_experience] > 40
+    end
+  end
+
+  # How would you return an array of all of the pokemon's names?
+  def all_names(pokemon)
+    pokemon.map do |pokemon|
+      pokemon[:name]
+    end
+  end
+
+
+  # How would you determine whether or not the pokemon array contained any pokemon with a weight greater than 60?
+  def weight_over_60(pokemon)
+    pokemon.any? do |pokemon|
+      pokemon[:weight] >60
+    end
+  end
+
+
+  #  whatever method you use should return true if there are any such pokemon, false if not.
